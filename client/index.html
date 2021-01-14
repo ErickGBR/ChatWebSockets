@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat</title>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<style type="text/css">
+		#messages{
+			width: 95%;
+			max-width: 400px;
+			height: 350px;
+			overflow-y: scroll;
+			border: 1px solid #eee;
+			box-shadow: 0px 0px 20px #ccc inset;
+		}
+
+		.message{
+			margin:20px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			background: white; 
+		}
+
+	</style>
+</head>
+<body>
+Demo de chat
+<div id="messages"></div>
+<form onsubmit="return addMessage(this)">
+		
+	<div class="row mt-2">
+		<div class="col-md-6">
+			<textarea class="form form-control" id="text"></textarea>	
+		</div>
+	</div>
+
+	<div class="row mt-2">
+		<div class="col-md-2">
+			<input type="submit" class="btn btn-danger" name="Enviar">	
+		</div>
+
+		<div class="col-md-4">
+			<input class="form form-control" type="text" id="nickname" placeholder="pon tu nick name">	
+		</div>
+
+	</div>
+	
+</form>
+
+</body>
+</html>
