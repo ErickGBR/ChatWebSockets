@@ -1,5 +1,9 @@
-var socket = io.connect('http://142.93.249.44:6677',{'forceNew':true})
+//URL server see chat
+const server = 'http://localhost:6677'
 
+var socket = io.connect(server,{'forceNew':true})
+
+//event listening
 socket.on('messages', (data)=>{
 	console.log(data)
 	render(data)
@@ -7,7 +11,6 @@ socket.on('messages', (data)=>{
 
 
 function render(data){
-
 
 var html = data.map(function(message, index){
 	return(`
@@ -32,6 +35,8 @@ function addMessage(){
 	}
 
 	document.getElementById('nickname').style.display ='none';
+	//Send event data
 	socket.emit('add-message', message);
+	text:document.getElementById('text').value ="";
 	return false;
 }
